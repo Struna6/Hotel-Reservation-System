@@ -13,7 +13,7 @@ public class Main extends Application
 
     public static void main(String[] args)
     {
-        //load(); ONLY FIRST LAUNCH!!!
+        //load(); //ONLY FIRST LAUNCH!!!
         launch();
         DbService.close();
     }

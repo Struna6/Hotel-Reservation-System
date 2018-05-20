@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "klienci")
-@SequenceGenerator(name= "klient_seq", sequenceName = "SEQ_ID", initialValue=10000001)
+@SequenceGenerator(name= "klient_seq", sequenceName = "SEQ_ID", initialValue=10000001, allocationSize = 1)
 final public class Klienci
 {
     @Id

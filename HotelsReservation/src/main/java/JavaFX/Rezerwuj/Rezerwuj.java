@@ -243,7 +243,8 @@ public class Rezerwuj
                     " pobyt_odLong BETWEEN " + chceOd + " AND " + chceDo + ") OR ( pobyt_odLong < " + chceOd
                     + " AND pobyt_doLong > " + chceDo+" )";
 
-            List<PokojeHotelowe> listTmp = DbService.returnListByExpression(PokojeHotelowe.class,"From PokojeHotelowe WHERE dostepny=1");
+            List<PokojeHotelowe> listTmp = DbService.returnListByExpression(PokojeHotelowe.class,"From " +
+                "PokojeHotelowe WHERE dostepny=1");
             List<PokojeHotelowe> zajete = DbService.returnListByExpression(Rezerwacje.class,expr);
 
             for (PokojeHotelowe p: zajete)

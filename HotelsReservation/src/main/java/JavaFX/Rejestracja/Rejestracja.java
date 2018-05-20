@@ -19,6 +19,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.List;
+
 public class Rejestracja
 {
 
@@ -111,6 +113,8 @@ public class Rejestracja
     }
     private static void rejestracjaKlienta()
     {
+        List<Klienci> lista = DbService.returnListByExpression(Klienci.class,"FROM Klienci");
+
         if((haslo.getText().equals("") && !trybPracownika) || imie.getText().equals("") || nazwisko.getText().equals("") || adres.getText
                 ().equals("") || telefon.getText().equals("") || (powtorzhaslo.getText().equals("") && !trybPracownika))
         {
@@ -167,6 +171,10 @@ public class Rejestracja
         {
             blad.setText("Za krótki adres");
             adres.clear();
+        }
+        else if(lista.size() >= 79999999)
+        {
+            Blad.show("Spróbuj zarejestrować się później!");
         }
         else
         {
